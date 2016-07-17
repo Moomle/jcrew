@@ -1,0 +1,83 @@
+-- ---
+-- Globals
+-- ---
+
+-- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+-- SET FOREIGN_KEY_CHECKS=0;
+
+-- ---
+-- Table 'jcrew_check_in'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `jcrew_check_in`;
+		
+CREATE TABLE `jcrew_check_in` (
+  `ID` BIGINT NULL AUTO_INCREMENT DEFAULT NULL,
+  `MEMBER_ID` BIGINT NOT NULL DEFAULT NULL,
+  `COURSE_ID` INTEGER NOT NULL DEFAULT NULL,
+  `CHECKIN_TIME` BIGINT NULL DEFAULT NULL,
+  `CHECKOUT_TIME` INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+);
+
+-- ---
+-- Table 'jcrew_member_info'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `jcrew_member_info`;
+		
+CREATE TABLE `jcrew_member_info` (
+  `ID` BIGINT NOT NULL AUTO_INCREMENT DEFAULT NULL,
+  `NICKNAME` VARCHAR(20) NOT NULL DEFAULT 'NULL' COMMENT '用户名，不超过20个字符',
+  `PASSWORD` VARCHAR(50) NOT NULL DEFAULT 'NULL' COMMENT 'md5加盐后密码',
+  `REGISTER_TIME_UTC` BIGINT NULL DEFAULT NULL,
+  `UTC_CREATE` BIGINT NULL DEFAULT NULL,
+  `UTC_MODIFIED` BIGINT NULL DEFAULT NULL,
+  `NAME` VARCHAR(10) NULL DEFAULT NULL,
+  `AGE` VARCHAR(3) NULL DEFAULT NULL,
+  `TEL` VARCHAR(18) NULL DEFAULT NULL,
+  `EMAIL` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+);
+
+-- ---
+-- Table 'jcrew_course_info'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `jcrew_course_info`;
+		
+CREATE TABLE `jcrew_course_info` (
+  `ID` INTEGER NOT NULL AUTO_INCREMENT DEFAULT NULL,
+  `COURSE_NAME` INTEGER NOT NULL DEFAULT NULL,
+  `TEACHER_ID` INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+);
+
+-- ---
+-- Foreign Keys 
+-- ---
+
+ALTER TABLE `jcrew_check_in` ADD FOREIGN KEY (MEMBER_ID) REFERENCES `jcrew_member_info` (`ID`);
+ALTER TABLE `jcrew_check_in` ADD FOREIGN KEY (COURSE_ID) REFERENCES `jcrew_course_info` (`ID`);
+
+-- ---
+-- Table Properties
+-- ---
+
+-- ALTER TABLE `jcrew_check_in` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `jcrew_member_info` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `jcrew_course_info` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ---
+-- Test Data
+-- ---
+
+-- INSERT INTO `jcrew_check_in` (`ID`,`MEMBER_ID`,`COURSE_ID`,`CHECKIN_TIME`,`CHECKOUT_TIME`) VALUES
+-- ('','','','','');
+-- INSERT INTO `jcrew_member_info` (`ID`,`NICKNAME`,`PASSWORD`,`REGISTER_TIME_UTC`,`UTC_CREATE`,`UTC_MODIFIED`,`NAME`,`AGE`,`TEL`,`EMAIL`) VALUES
+-- ('','','','','','','','','','');
+-- INSERT INTO `jcrew_course_info` (`ID`,`COURSE_NAME`,`TEACHER_ID`) VALUES
+-- ('','','');
