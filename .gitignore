@@ -3,3 +3,4 @@ Desktop.ini
 *.py[cod]
 *.so
 *.build
+*.DS_Store

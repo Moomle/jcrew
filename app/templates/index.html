@@ -504,7 +504,7 @@
                       <form data-page-id="97098" accept-charset="UTF-8" class="signup_form" data-remote="true" id="signup_form" method="post">
           
             <div data-content-name="hero_content" data-mercury="froala">
-              <h2><img class="fr-dib" src="https://d7zgbk06ve7c.cloudfront.net/assets/64924/roniiyuz0edbbwfoysdz/App.png" style="width: 138px;"></h2><h2><strong><span style="font-size: 36px;"><span style="font-family: Lato; font-size: 42px;"><strong>Beaustantly</strong></span></span></strong></h2><p><span style="font-family: Lato; font-size: 17px;">Hair, &nbsp;makeup &amp; nails<br>in the comfort of your home, hotel room, or office in New York City</span></p><p><br></p><p><span style="font-family: Lato; font-size: 14px;">Join the waiting list for a <strong>FREE&nbsp;</strong>copy of 30 Beauty Tips that Every Girl Can Use!</span></p>
+              <h2><img class="fr-dib" src="https://d7zgbk06ve7c.cloudfront.net/assets/64924/roniiyuz0edbbwfoysdz/App.png" style="width: 138px;"></h2><h2><strong><span style="font-size: 36px;"><span style="font-family: Lato; font-size: 42px;"><strong>JCREW</strong></span></span></strong></h2><p><span style="font-family: Lato; font-size: 17px;">Jazziness, &nbsp;fitness &amp; nails<br>in the comfort of your home, hotel room, or office in New York City</span></p><p><br></p><p><span style="font-family: Lato; font-size: 14px;">Join the waiting list for a <strong>FREE&nbsp;</strong>copy of 30 Beauty Tips that Every Girl Can Use!</span></p>
             </div>
             <!-- Form -->
             <div role="form" id="subscribe-form">
@@ -512,9 +512,12 @@
 
               
 
-              
+              <!--
               <input id="email" class="required form-control input-lg subscribe-input input-block" type="email" name="email" placeholder="Type your email here" data-label-text="Email">
-              
+              -->
+              {{ form.hidden_tag() }}
+              <input id="email" class="required form-control input-lg subscribe-input input-block" type="email" name="email" placeholder="{{ form.nickname.data }}" data-label-text="Email">
+
               
               <button id="submit_button" class="btn btn-lg btn-primary" name="submit" type="submit">Sign Up Now!</button>
             </div>

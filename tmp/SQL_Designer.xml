@@ -37,13 +37,13 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="10" y="10" name="jcrew_check_in">
+</datatypes><table x="581" y="160" name="jcrew_check_in">
 <row name="ID" null="1" autoincrement="1">
 <datatype>BIGINT</datatype>
 <default>NULL</default></row>
-<row name="MEMBER_ID" null="0" autoincrement="0">
+<row name="MEMBER_UID" null="0" autoincrement="0">
 <datatype>BIGINT</datatype>
-<default>NULL</default><relation table="jcrew_member_info" row="ID" />
+<default>NULL</default><relation table="jcrew_member_info" row="UID" />
 </row>
 <row name="COURSE_ID" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -59,8 +59,8 @@
 <part>ID</part>
 </key>
 </table>
-<table x="185" y="10" name="jcrew_member_info">
-<row name="ID" null="0" autoincrement="1">
+<table x="243" y="100" name="jcrew_member_info">
+<row name="UID" null="0" autoincrement="1">
 <datatype>BIGINT</datatype>
 <default>NULL</default></row>
 <row name="NICKNAME" null="0" autoincrement="0">
@@ -93,10 +93,10 @@
 <datatype>VARCHAR(50)</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
-<part>ID</part>
+<part>UID</part>
 </key>
 </table>
-<table x="390" y="10" name="jcrew_course_info">
+<table x="920" y="134" name="jcrew_course_info">
 <row name="ID" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -111,4 +111,3 @@
 </key>
 </table>
 </sql>
-
